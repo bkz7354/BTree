@@ -1,0 +1,3 @@
+/home/kam/Documents/prog/phystech/sem3/B_tree/build/CMakeFiles/rebuild_cache.dir
+/home/kam/Documents/prog/phystech/sem3/B_tree/build/CMakeFiles/edit_cache.dir
+/home/kam/Documents/prog/phystech/sem3/B_tree/build/CMakeFiles/tree_test.dir

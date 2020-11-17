@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.tcc": "cpp",
+        "random": "cpp",
+        "limits": "cpp",
+        "type_traits": "cpp",
+        "array": "cpp",
+        "cassert": "cpp"
+    }
+}
