@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/kam/Documents/prog/phystech/sem3/B_tree/build",
-  "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/tree_test.dir/tree_test.cpp.o -c /home/kam/Documents/prog/phystech/sem3/B_tree/tree_test.cpp",
-  "file": "/home/kam/Documents/prog/phystech/sem3/B_tree/tree_test.cpp"
-}
-]
