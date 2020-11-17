@@ -73,7 +73,13 @@ public:
     }
 
     void print_tree(std::ostream& os){
-        m_root->print(os, "");
+        std::cout << "printing tree:" << std::endl;
+        if(m_root)
+            m_root->print(os, "");
+        else
+            os << "tree is empty" << std::endl;
+
+        std::cout << std::endl;            
     }
 
     void remove(const T& val){
@@ -310,7 +316,7 @@ bool B_tree<T, M>::node::find(const T& val){
 
 template<typename T, size_t M>
 void B_tree<T, M>::node::print(std::ostream& os, std::string pref){
-    os << pref << "> ";
+    os << pref << (leaf ? "x " : "> ");
     for(size_t i = 0; i < fill; ++i)
         os << key[i] << " ";
     os << std::endl;
