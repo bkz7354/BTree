@@ -16,11 +16,12 @@ void show_res(B_tree<T, M>& t, std::vector<int>& a){
     a.erase(std::unique(a.begin(), a.end()), a.end());
 
     std::cout << std::endl;
-    std::cout << "printing array:" << std::endl;
+    std::cout << "array: ";
     for(auto x: a)
         std::cout << x << " ";
     std::cout << std::endl;
 
+    std::cout << "tree:  ";
     for(int i = 0; i < 100; ++i)
         if(t.find(i))
             std::cout << i << " ";
@@ -45,7 +46,8 @@ int main(){
 
     std::vector<int> a;
 
-    a.resize(50);
+    int samp_size = 50;
+    a.resize(samp_size);
     std::generate(a.begin(), a.end(), [&](){
         return gen()%100;
     });
@@ -56,7 +58,7 @@ int main(){
 
     show_res(t, a);
 
-    while(a.size() > 0){
+    while(a.size() > samp_size/4){
         delete_half(t, a);
         show_res(t, a);
     }

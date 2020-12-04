@@ -54,6 +54,8 @@ private:
         bool find(const T& val);
         
         void print(std::ostream& os, std::string pref);
+
+        void clear_subtree();
     };
     
     node* m_root = nullptr;
@@ -85,6 +87,15 @@ public:
     void remove(const T& val){
         if(m_root)
             root_remove(val);
+    }
+
+    ~B_tree(){
+        if(m_root){
+            m_root->clear_subtree();
+            delete m_root;
+            m_root = nullptr;
+        }
+
     }
 };
 
@@ -277,9 +288,6 @@ void B_tree<T, M>::node::rotate_ccw(size_t id){
     
 template<typename T, size_t M>
 void B_tree<T, M>::node::merge_children(size_t id){
-    assert(!leaf && "merge_children cannot be called on leaves");
-    assert(c[id]->fill <= M-1 && c[id + 1]->fill <= M-1 && "both children should less than M-1 keys");
-
     node* l = c[id];
     node* r = c[id+1];
 
@@ -341,5 +349,16 @@ void B_tree<T, M>::node::print(std::ostream& os, std::string pref){
         pref = pref.substr(0, pref.size() - d_pref.size());
         c[i]->print(os, pref);
         os << pref << std::endl;
+    }
+}
+
+template<typename T, size_t M>
+void B_tree<T, M>::node::clear_subtree(){
+    if(!leaf){
+        for(size_t i = 0; i < fill; ++i){
+            c[i]->clear_subtree();
+            delete c[i];
+            c[i] = nullptr;
+        }
     }
 }
